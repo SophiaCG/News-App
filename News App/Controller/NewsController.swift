@@ -57,6 +57,7 @@ extension NewsController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let search = searchBar.text else { return }
         fetchNews(for: search)
+        searchBar.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -64,6 +65,7 @@ extension NewsController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         items = articles
         tableView.reloadData()
+        searchBar.endEditing(true)
     }
 }
 
